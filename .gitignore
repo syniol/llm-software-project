@@ -1,7 +1,8 @@
-# AI Agent Workspaces & Logs
+# AI agent workspace artefacts (never commit)
 .agent/logs/
 .agent/scratch/
-.agent/memory/
+# Uncomment below to keep agent memory private (not shared with team):
+# .agent/memory/
 .qdrant/
 .chroma/
 

@@ -108,6 +108,8 @@ Enterprise LLMs (Claude 3.5/3.7, Gemini 1.5/2.0 Pro/Flash, GPT-4o) charge per in
 my-project/
 ├── AGENTS.md                       # 🌟 Master Entrypoint: Core guidelines, directives & agent index
 ├── CLAUDE.md                       # Symlink → AGENTS.md (Claude Code CLI compatibility)
+├── CONTRIBUTING.md                 # Symlink → docs/CONTRIBUTING.md (Human contributor guide)
+├── ARCHITECTURE.md                 # Symlink → docs/ARCHITECTURE.md (Human architecture index)
 ├── Makefile                        # 🤖 Agentic Task Runner (setup-ai, clean-ai, ai-lint, ai-test)
 ├── .editorconfig                   # 📐 Universal formatting baseline (tabs, spaces, charsets)
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
@@ -127,9 +129,11 @@ my-project/
 │   │   ├── ui-component/
 │   │   │   ├── SKILL.md            #   Design tokens, WCAG 2.1 AA accessibility, component trees
 │   │   │   └── examples/           #   Golden-file reference implementations
-│   │   └── api-endpoint/
-│   │       ├── SKILL.md            #   REST conventions, Zod validation, middleware chains
-│   │       └── scripts/            #   OpenAPI generation & schema validation scripts
+│   │   ├── api-endpoint/
+│   │   │   ├── SKILL.md            #   REST conventions, Zod validation, middleware chains
+│   │   │   └── scripts/            #   OpenAPI generation & schema validation scripts
+│   │   └── code-review/
+│   │       └── SKILL.md            #   Structured review checklist, severity matrix & output format
 │   │
 │   ├── personas/                   # 🎭 Specialized Subagent Roles (Multi-Agent Workflows)
 │   │   ├── security-auditor.md     #   OWASP vulnerability & secret leakage auditor
@@ -156,11 +160,15 @@ my-project/
 │   │   └── commit-message.md       #   Conventional Commits specification
 │   │
 │   └── context/                    # 🧠 Architectural Memory & Knowledge Base
-│       ├── adr/                    #   Architectural Decision Records (ADRs)
+│       ├── adr/                    #   Architectural Decision Records
 │       │   ├── 0001-use-postgresql.md
 │       │   └── 0002-state-management.md
+│       ├── CODEBASE-MAP.md         #   Living index of src layout for instant agent orientation
 │       ├── system-diagrams.md      #   Mermaid C4 context & sequence diagrams
 │       └── domain-glossary.md      #   Unambiguous business term definitions
+│
+├── .agent/memory/                  # 🧩 Persistent Cross-Session Agent Memory
+│   └── session-log.md              #   Dated log of key decisions, constraints & lessons learned
 │
 ├── .cursor/                        # Cursor IDE Integration
 │   └── rules/ -> ../.agent/rules   #   Symlink to central rules directory

@@ -6,7 +6,7 @@
 
 ## Guiding Principle
 
-**When in doubt, ask.** The cost of a 30-second confirmation is negligible. The cost of an unauthorized destructive action is catastrophic. These rules exist because some operations cannot be undone with `Ctrl+Z`.
+**When in doubt, ask.** The cost of a 30-second confirmation is negligible. The cost of an unauthorised destructive action is catastrophic. These rules exist because some operations cannot be undone with `Ctrl+Z`.
 
 ---
 
@@ -58,28 +58,20 @@ File deletion in production environments can cause immediate service disruption.
 
 ---
 
-## Rule 3: Authentication and Authorization Changes
+## Rule 3: Authentication and Authorisation Changes
 
-### Operations Requiring Approval
+### Description
+An agent must never alter authentication mechanisms, authorisation logic, RBAC rules, or password hashing algorithms without explicit human signoff.
 
-- Modifying login, registration, or password reset flows
-- Changing role definitions, permission matrices, or access control lists
-- Altering JWT signing keys, session management, or token expiration
-- Modifying OAuth/OIDC provider configuration
-- Adding or removing MFA requirements
-- Changing password hashing algorithms or parameters
-- Modifying API key generation or validation logic
+### What Constitutes an Auth Change?
+- Modifying JWT signing keys, expiration times, or validation logic
+- Altering user role checks or permission middleware
+- Changing password hashing parameters (e.g. bcrypt rounds)
+- Modifying session storage or cookie attributes
+- Adding or removing authentication endpoints
 
-### Rationale
-
-Authentication and authorization are the security perimeter of the application. A bug in auth logic can grant unauthorized access to every user's data, elevate privileges for unprivileged users, or lock out legitimate users. These changes have a blast radius that extends to every user of the system.
-
-### Required Before Execution
-
-- [ ] Security review of the proposed change
-- [ ] Test coverage for both positive and negative auth scenarios
-- [ ] Verification that existing sessions are handled correctly
-- [ ] Approval from the security team or security-designated reviewer
+### Why This Rule Exists
+Authentication and authorisation are the security perimeter of the application. A bug in auth logic can grant unauthorised access to every user's data, elevate privileges for unprivileged users, or lock out legitimate users. These changes have a blast radius that extends to every user of the system.
 
 ---
 

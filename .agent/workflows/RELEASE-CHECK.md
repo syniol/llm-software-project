@@ -168,7 +168,7 @@ git push origin v2.4.0
 
 **Verification:**
 - [ ] Tag follows semver format: `vMAJOR.MINOR.PATCH`
-- [ ] Tag message summarizes the release contents
+- [ ] Tag message summarises the release contents
 - [ ] Tag points to the exact commit that was tested on staging
 - [ ] GitHub Release / GitLab Release is created with changelog contents
 
