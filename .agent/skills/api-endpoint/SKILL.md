@@ -28,7 +28,7 @@ const CreateUserSchema = z.object({
 });
 ```
 
-## 3. Standardized Error Response
+## 3. Standardised Error Response
 All errors must return this shape:
 ```json
 {

@@ -35,12 +35,12 @@ export interface MyComponentProps {
 
 ## 3. Accessibility (WCAG 2.1 AA)
 - All interactive elements must have `aria-label` or visible label text.
-- Color contrast ratio must be at least **4.5:1** for normal text, **3:1** for large text.
+- Colour contrast ratio must be at least **4.5:1** for normal text, **3:1** for large text.
 - Support keyboard navigation (`Tab`, `Enter`, `Escape`).
 - Include `role` attributes where semantic HTML is insufficient.
 
 ## 4. Design System Tokens
-- Use design tokens for all colors, spacing, typography, and radii. Never hardcode values.
+- Use design tokens for all colours, spacing, typography, and radii. Never hardcode values.
 - Example: `var(--color-primary)`, `var(--spacing-md)`, `var(--radius-lg)`.
 
 ## 5. Responsive Breakpoints

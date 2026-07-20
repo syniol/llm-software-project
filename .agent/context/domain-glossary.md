@@ -6,7 +6,7 @@ Precise definitions of business terms used in this project. AI agents must use t
 |------|-----------|
 | **Tenant** | A top-level organizational entity (typically a company or team) that owns all resources within its scope. All data is tenant-isolated; cross-tenant data access is forbidden. |
 | **Workspace** | A subdivision within a Tenant. Users can belong to multiple Workspaces under the same Tenant. Each Workspace has its own settings, members, and resources. |
-| **Seat License** | A paid user slot within a Tenant's subscription. Each active user consumes one Seat License. Deactivated users free their seat. |
+| **Seat Licence** | A paid user slot within a Tenant's subscription. Each active user consumes one Seat Licence. Deactivated users free their seat. |
 | **Billing Cycle** | The recurring period (monthly or annual) during which subscription charges accrue. Prorated charges apply when seats are added mid-cycle. |
 | **SSO Provider** | A third-party identity provider (e.g., Okta, Azure AD, Google Workspace) used for Single Sign-On authentication. Configured per Tenant. |
 | **Webhook Subscription** | A registered HTTP callback URL that receives real-time event notifications (e.g., `order.created`, `user.invited`). Each subscription targets a single event type. |

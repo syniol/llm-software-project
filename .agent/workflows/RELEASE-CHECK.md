@@ -42,7 +42,7 @@ head -50 CHANGELOG.md
 
 **Verification:**
 - [ ] `[Unreleased]` section contains entries for every merged PR since the last release
-- [ ] Entries are categorized correctly: Added, Changed, Deprecated, Removed, Fixed, Security
+- [ ] Entries are categorised correctly: Added, Changed, Deprecated, Removed, Fixed, Security
 - [ ] Breaking changes are explicitly called out with migration instructions
 - [ ] The version number and date are filled in (replacing `[Unreleased]`)
 

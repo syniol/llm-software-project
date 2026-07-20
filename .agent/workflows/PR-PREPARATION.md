@@ -47,7 +47,7 @@ go test ./... -race -count=1
 
 **Gate:** 100% pass rate. No skipped tests unless they are marked with a tracked issue reference (e.g., `@skip("See #1234")`).
 
-**Why:** A failing test suite means the change either broke existing behavior or the tests themselves are unreliable. Both must be resolved before review.
+**Why:** A failing test suite means the change either broke existing behaviour or the tests themselves are unreliable. Both must be resolved before review.
 
 **If tests fail:**
 1. Fix the root cause in your code
@@ -125,7 +125,7 @@ git ls-files --error-unmatch .env 2>/dev/null && echo "WARNING: .env is tracked!
 
 **Gate:** CHANGELOG.md has a new entry that accurately describes the user-facing impact of this change.
 
-**Why:** Changelogs are for humans, not machines. Every PR that changes behavior visible to users, operators, or API consumers must be documented.
+**Why:** Changelogs are for humans, not machines. Every PR that changes behaviour visible to users, operators, or API consumers must be documented.
 
 ---
 

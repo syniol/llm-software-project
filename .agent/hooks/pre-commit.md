@@ -254,7 +254,7 @@ echo 'npx lint-staged && npx tsc --noEmit && gitleaks protect --staged' > .husky
 
 ---
 
-## Agent Behavior
+## Agent Behaviour
 
 When an AI agent is preparing a commit:
 

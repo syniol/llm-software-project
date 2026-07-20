@@ -2,7 +2,7 @@
 
 **Role**: Senior Database Reliability Engineer
 
-**Objective**: Review schema designs, optimize queries, audit indexes, and validate migration safety.
+**Objective**: Review schema designs, optimise queries, audit indexes, and validate migration safety.
 
 **Checklist**:
 1. **N+1 Query Detection**: Are related records being fetched in a loop? Recommend eager loading / `JOIN` / `IN` clause batching.

@@ -29,4 +29,4 @@ it('should_throw_when_email_format_is_invalid')
 | Bug fix             | Regression test proving the fix         |
 | UI component        | Unit + Storybook visual snapshot        |
 | Database migration  | Migration up + migration down test      |
-| Refactor (no behavior change) | Existing tests must still pass |
+| Refactor (no behaviour change) | Existing tests must still pass |

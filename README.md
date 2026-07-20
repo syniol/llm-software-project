@@ -6,7 +6,7 @@
 [![Token Efficiency](https://img.shields.io/badge/Token_Efficiency-90%25_Context_Savings-green.svg)](#token-economics--context-window-optimization)
 [![Compliance](https://img.shields.io/badge/Compliance-OWASP_Top_10_%7C_SOC_2_Aligned-orange.svg)](file:///Users/hadi/dev/ai/llm/.agent/rules/04-security.md)
 
-The **production-grade reference architecture** engineered for enterprise software organizations operating multi-model AI coding agents at scale. 
+The **production-grade reference architecture** engineered for enterprise software organisations operating multi-model AI coding agents at scale. 
 
 Eliminates **AI Architectural Drift**, **Context Window Saturation**, and **Unsanctioned Agent Mutations** across heterogeneous toolchains (Google Antigravity, Claude Code, Cursor, GitHub Copilot, Codex, and custom SDK subagents).
 
@@ -15,9 +15,9 @@ Eliminates **AI Architectural Drift**, **Context Window Saturation**, and **Unsa
 ## Executive Summary & Architectural Vision
 
 > [!IMPORTANT]
-> **The Enterprise AI Bottleneck**: As engineering organizations adopt AI tools, developer environments fragment into siloed prompt rules (`.cursorrules`, `.claude/`, `copilot-instructions.md`). This results in context drift, duplicated maintenance, token bloat, and uncontrolled agent mutations in production repos.
+> **The Enterprise AI Bottleneck**: As engineering organisations adopt AI tools, developer environments fragment into siloed prompt rules (`.cursorrules`, `.claude/`, `copilot-instructions.md`). This results in context drift, duplicated maintenance, token bloat, and uncontrolled agent mutations in production repos.
 
-This repository implements the **Universal `.agent/` Hub Pattern** — a single, centralized, tool-agnostic governance and execution mesh.
+This repository implements the **Universal `.agent/` Hub Pattern** — a single, centralised, tool-agnostic governance and execution mesh.
 
 ```mermaid
 flowchart TD
@@ -35,7 +35,7 @@ flowchart TD
         D -->|".github/copilot-instructions.md"| R
     end
 
-    subgraph Hub ["Centralized .agent/ Enterprise Hub"]
+    subgraph Hub ["Centralised .agent/ Enterprise Hub"]
         AGENTS --> R
         R -->|"01-Architecture"| Rules["Architecture Rules"]
         R -->|"02-Code-Style"| Rules
@@ -75,7 +75,7 @@ sequenceDiagram
     alt Destructive Operation (Drop DB, Modify Auth, Touch Secrets)
         Gate-->>Dev: REJECTED: Requires Explicit Human Approval (REQUIRED_APPROVALS.md)
     else Safe / Approved Operation
-        Gate->>Tool: Execute via Standardized Target (make ai-test)
+        Gate->>Tool: Execute via Standardised Target (make ai-test)
         Tool-->>Dev: Verified Output
         Dev->>CI: Push Pull Request
         CI->>CI: Trigger Automated AI PR Reviewer Workflow
@@ -112,7 +112,7 @@ my-project/
 ├── .editorconfig                   # 📐 Universal formatting baseline (tabs, spaces, charsets)
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
 │
-├── .agent/                         # 🚀 Centralized AI Governance & Multi-Agent Core
+├── .agent/                         # 🚀 Centralised AI Governance & Multi-Agent Core
 │   │
 │   ├── rules/                      # 📜 Mandatory Global Rules (Loaded on EVERY turn)
 │   │   ├── 01-architecture.md      #   Layered architecture, DI patterns, barrel export policy
@@ -134,7 +134,7 @@ my-project/
 │   ├── personas/                   # 🎭 Specialized Subagent Roles (Multi-Agent Workflows)
 │   │   ├── security-auditor.md     #   OWASP vulnerability & secret leakage auditor
 │   │   ├── code-reviewer.md        #   Staff Engineer PR reviewer persona
-│   │   └── db-specialist.md        #   Database Reliability Engineer & query optimizer
+│   │   └── db-specialist.md        #   Database Reliability Engineer & query optimiser
 │   │
 │   ├── workflows/                  # 📋 Standard Operating Procedures (SOPs)
 │   │   ├── PR-PREPARATION.md       #   7-step pre-flight checklist before opening PRs
@@ -151,7 +151,7 @@ my-project/
 │   ├── hooks/                      # 🪝 Pre-Commit & Verification Hooks
 │   │   └── pre-commit.md           #   4-gate local validation (lint, tsc, gitleaks, tests)
 │   │
-│   ├── templates/                  # 📝 Standardized Outputs
+│   ├── templates/                  # 📝 Standardised Outputs
 │   │   ├── pull-request.md         #   Enterprise PR description template
 │   │   └── commit-message.md       #   Conventional Commits specification
 │   │
@@ -236,7 +236,7 @@ make ai-review   # Run local pre-commit AI code audit
 ## Enterprise Compliance Mapping
 
 > [!CAUTION]
-> Unregulated AI agents pose severe risks of secret leakage, license violation, and architectural erosion. This repository enforces compliance out of the box:
+> Unregulated AI agents pose severe risks of secret leakage, licence violation, and architectural erosion. This repository enforces compliance out of the box:
 
 - **SOC 2 Type II / ISO 27001**: Audit trail enforcement via Conventional Commits ([`commit-message.md`](file:///Users/hadi/dev/ai/llm/.agent/templates/commit-message.md)) and mandatory human gates ([`REQUIRED_APPROVALS.md`](file:///Users/hadi/dev/ai/llm/.agent/boundaries/REQUIRED_APPROVALS.md)).
 - **OWASP Top 10**: Enforced at the boundary layer ([`04-security.md`](file:///Users/hadi/dev/ai/llm/.agent/rules/04-security.md)) with Zod schema validation and parameterized query requirements.
@@ -246,12 +246,12 @@ make ai-review   # Run local pre-commit AI code audit
 
 ## Adapting for Your Enterprise Tech Stack
 
-This framework is **stack-agnostic**. To deploy this template across your organization:
+This framework is **stack-agnostic**. To deploy this template across your organisation:
 
-1. **Customize Global Rules** (`.agent/rules/`): Swap TypeScript rules for Go, Python, Java, or Rust conventions.
+1. **Customise Global Rules** (`.agent/rules/`): Swap TypeScript rules for Go, Python, Java, or Rust conventions.
 2. **Expand Skill Packs** (`.agent/skills/`): Add domain packs for `terraform/`, `kubernetes/`, `graphql/`, or `kafka/`.
 3. **Register MCP Tools** (`.agent/mcp/servers.json`): Bind internal enterprise APIs and database tools.
-4. **Enforce in CI/CD**: Deploy `.github/workflows/ai-pr-reviewer.yml` across all organization repositories.
+4. **Enforce in CI/CD**: Deploy `.github/workflows/ai-pr-reviewer.yml` across all organisation repositories.
 
 ---
 
