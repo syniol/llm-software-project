@@ -22,35 +22,35 @@ This repository implements the **Universal `.agent/` Hub Pattern** — a single,
 ```mermaid
 flowchart TD
     subgraph Toolchain ["IDE & CLI AI Interface Layer"]
-        A[Google Antigravity / agy]
-        B[Claude Code CLI]
-        C[Cursor IDE]
-        D[GitHub Copilot]
+        A["Google Antigravity / agy"]
+        B["Claude Code CLI"]
+        C["Cursor IDE"]
+        D["GitHub Copilot"]
     end
 
     subgraph Adapters ["Zero-Drift Interoperability Mesh (Symlinks)"]
-        A -->|.gemini/skills| S[.agent/skills]
-        B -->|CLAUDE.md| AGENTS[AGENTS.md]
-        C -->|.cursor/rules| R[.agent/rules]
-        D -->|.github/copilot-instructions.md| R
+        A -->|".gemini/skills"| S[".agent/skills"]
+        B -->|"CLAUDE.md"| AGENTS["AGENTS.md"]
+        C -->|".cursor/rules"| R[".agent/rules"]
+        D -->|".github/copilot-instructions.md"| R
     end
 
     subgraph Hub ["Centralized .agent/ Enterprise Hub"]
         AGENTS --> R
-        R -->|01-Architecture| Rules
-        R -->|02-Code-Style| Rules
-        R -->|03-Testing| Rules
-        R -->|04-Security| Rules
+        R -->|"01-Architecture"| Rules["Architecture Rules"]
+        R -->|"02-Code-Style"| Rules
+        R -->|"03-Testing"| Rules
+        R -->|"04-Security"| Rules
         
-        S -->|On-Demand Skills| Skills[db-migration | ui-component | api-endpoint]
+        S -->|"On-Demand Skills"| Skills["db-migration, ui-component, api-endpoint"]
         
-        HubCore[MCP Servers | Personas | Boundaries | Workflows | ADRs]
+        HubCore["MCP Servers, Personas, Boundaries, Workflows, ADRs"]
     end
 
     subgraph Execution ["Governed Agent Execution"]
-        Rules --> Gate{Security & Human Gate}
+        Rules --> Gate{"Security & Human Gate"}
         Skills --> Gate
-        Gate -->|Approved| Pipeline[Makefile Automation & CI/CD Reviewer]
+        Gate -->|"Approved"| Pipeline["Makefile Automation & CI/CD Reviewer"]
     end
 ```
 
@@ -73,7 +73,7 @@ sequenceDiagram
     Hub->>Hub: Ingest Global Rules & Target Skill
     Hub->>Gate: Evaluate Mutation Request
     alt Destructive Operation (Drop DB, Modify Auth, Touch Secrets)
-        Gate-->>Dev: ⛔ REJECTED: Requires Explicit Human Approval (REQUIRED_APPROVALS.md)
+        Gate-->>Dev: REJECTED: Requires Explicit Human Approval (REQUIRED_APPROVALS.md)
     else Safe / Approved Operation
         Gate->>Tool: Execute via Standardized Target (make ai-test)
         Tool-->>Dev: Verified Output
