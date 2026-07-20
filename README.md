@@ -114,6 +114,7 @@ my-project/
 ├── .editorconfig                   # 📐 Universal formatting baseline (tabs, spaces, charsets)
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
 ├── .aignore                        # 🙈 AI Context Ignore (Prevents indexing dist/, node_modules/ to save tokens)
+├── LICENSE                         # ⚖️ BSD 3-Clause Licence (Syniol Limited)
 │
 ├── .agent/                         # 🚀 Centralised AI Governance & Multi-Agent Core
 │   │
@@ -267,5 +268,11 @@ This framework is **stack-agnostic**. To deploy this template across your organi
 4. **Enforce in CI/CD**: Deploy `.github/workflows/ai-pr-reviewer.yml` across all organisation repositories.
 
 ---
+
+## Licence & Copyright
+
+Copyright © 2026 **Syniol Limited**. All rights reserved.
+
+Distributed under the **BSD 3-Clause Licence**. See [`LICENSE`](file:///Users/hadi/dev/ai/llm/LICENSE) for full legal text.
 
 *Engineered for high-velocity, multi-agent AI software development.*
