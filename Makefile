@@ -25,13 +25,15 @@ setup-ai:
 	@ln -sf AGENTS.md CLAUDE.md || true
 	@ln -sf docs/CONTRIBUTING.md CONTRIBUTING.md || true
 	@ln -sf docs/ARCHITECTURE.md ARCHITECTURE.md || true
+	@ln -sf .aignore .cursorignore || true
+	@ln -sf .aignore .claudesignore || true
 	@ln -sf ../.agent/skills .gemini/skills || true
 	@ln -sf ../../.agent/rules .cursor/rules/agent-rules || true
 	@echo "✅ AI environment symlinks established!"
 
 clean-ai:
 	@echo "Removing AI cross-compatibility symlinks..."
-	@rm -f AGENTS.md CLAUDE.md CONTRIBUTING.md ARCHITECTURE.md
+	@rm -f AGENTS.md CLAUDE.md CONTRIBUTING.md ARCHITECTURE.md .cursorignore .claudesignore
 	@rm -f .gemini/skills
 	@rm -f .cursor/rules/agent-rules
 	@echo "🧹 AI environment symlinks removed!"

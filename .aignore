@@ -1,0 +1,54 @@
+# AI Context Ignore File (.aignore)
+# This file is used to explicitly prevent AI agents (Cursor, Claude, Antigravity)
+# from indexing specific files or directories to save tokens and prevent context bloat.
+
+# Package managers & Lockfiles (Huge token wasters)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Cargo.lock
+Poetry.lock
+
+# Build & Distribution Directories
+dist/
+build/
+out/
+.next/
+.nuxt/
+coverage/
+
+# Dependency Directories
+node_modules/
+vendor/
+.venv/
+venv/
+env/
+
+# Binary & Media Assets
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.svg
+*.pdf
+*.zip
+*.tar.gz
+*.mp4
+*.mp3
+
+# Auto-generated code / Types
+graphql.schema.json
+auto-imports.d.ts
+components.d.ts
+*.generated.*
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# AI Scratch and Memory (Prevent recursive feedback loops)
+.agent/logs/
+.agent/scratch/

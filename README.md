@@ -113,6 +113,7 @@ my-project/
 ├── Makefile                        # 🤖 Agentic Task Runner (setup-ai, clean-ai, ai-lint, ai-test)
 ├── .editorconfig                   # 📐 Universal formatting baseline (tabs, spaces, charsets)
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
+├── .aignore                        # 🙈 AI Context Ignore (Prevents indexing dist/, node_modules/ to save tokens)
 │
 ├── .agent/                         # 🚀 Centralised AI Governance & Multi-Agent Core
 │   │
@@ -156,6 +157,7 @@ my-project/
 │   │   └── pre-commit.md           #   4-gate local validation (lint, tsc, gitleaks, tests)
 │   │
 │   ├── templates/                  # 📝 Standardised Outputs
+│   │   ├── implementation-plan.md  #   Pre-coding design plan human must approve
 │   │   ├── pull-request.md         #   Enterprise PR description template
 │   │   └── commit-message.md       #   Conventional Commits specification
 │   │
@@ -169,6 +171,9 @@ my-project/
 │
 ├── .agent/memory/                  # 🧩 Persistent Cross-Session Agent Memory
 │   └── session-log.md              #   Dated log of key decisions, constraints & lessons learned
+│
+├── .agent/evals/                   # 🧪 Prompt Engineering & LLM-as-a-judge tests
+│   └── README.md                   #   Instructions for testing agent regressions
 │
 ├── .cursor/                        # Cursor IDE Integration
 │   └── rules/ -> ../.agent/rules   #   Symlink to central rules directory
