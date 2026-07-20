@@ -115,6 +115,7 @@ my-project/
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
 ├── .aignore                        # 🙈 AI Context Ignore (Prevents indexing dist/, node_modules/ to save tokens)
 ├── LICENSE                         # ⚖️ BSD 3-Clause Licence (Syniol Limited)
+├── CHANGELOG.md                    # 📜 Release History & Versioning Log
 │
 ├── .agent/                         # 🚀 Centralised AI Governance & Multi-Agent Core
 │   │
