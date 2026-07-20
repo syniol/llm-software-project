@@ -1,0 +1,12 @@
+# AI Agent Workspaces & Logs
+.agent/logs/
+.agent/scratch/
+.agent/memory/
+.qdrant/
+.chroma/
+
+# Standard Environment
+node_modules/
+.env
+dist/
+build/

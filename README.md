@@ -2,7 +2,7 @@
 
 Here is the **gold-standard repository layout** used by elite software engineers and AI-first engineering teams. 
 
-It is designed for **multi-model interoperability** (Google Antigravity, Claude Code, Cursor, Copilot, Codex) and maximum **token efficiency** (modular context loaded on-demand rather than giant monolithic prompt files).
+It is designed for **multi-model interoperability** (Google Antigravity, Claude Code, Cursor, Copilot, Codex), maximum **token efficiency** (modular context loaded on-demand rather than giant monolithic prompt files), and **enterprise-level automation and security**.
 
 ---
 
@@ -12,6 +12,7 @@ It is designed for **multi-model interoperability** (Google Antigravity, Claude 
 my-project/
 ├── AGENTS.md                   # 🌟 Single Source of Truth: Core project guidelines & AI rules
 ├── CLAUDE.md                   # Symlink to AGENTS.md or stub for Claude Code CLI compatibility
+├── Makefile                    # 🤖 Agentic Task definitions (e.g. ai-test, ai-lint)
 ├── .agent/                     # 🚀 Centralized AI Context & Multi-Agent Hub (Universal Standard)
 │   ├── rules/                  # Global rules enforced on every coding task
 │   │   ├── 01-architecture.md  # Tech stack, boundary definitions, component hierarchy
@@ -31,10 +32,16 @@ my-project/
 │   ├── personas/               # Specialized subagent definitions for multi-agent execution
 │   │   ├── security-auditor.md # Persona for vulnerability & dependency scanning
 │   │   ├── code-reviewer.md    # Persona for PR review and edge-case verification
-│   │   └── db-specialist.md   # Persona for query optimization and schema design
+│   │   └── db-specialist.md    # Persona for query optimization and schema design
 │   ├── workflows/              # Slash commands / standard operating procedures (SOPs)
 │   │   ├── PR-PREPARATION.md   # SOP for pre-PR checks (lint, test, build, changelog)
 │   │   └── RELEASE-CHECK.md    # SOP for deployment verification
+│   ├── mcp/                    # 🔌 Model Context Protocol (MCP) integrations
+│   │   ├── servers.json        # Defines MCP servers (e.g. PostgreSQL, Github, Jira)
+│   │   └── api-specs/          # OpenAPI/Swagger specs for tool ingestion
+│   ├── boundaries/             # 🛡️ Security Guardrails & Human-in-the-loop triggers
+│   │   ├── SECRETS_DO_NOT_TOUCH.md # Forbidden files the AI cannot edit (e.g. .env)
+│   │   └── REQUIRED_APPROVALS.md   # Workflows requiring human YES/NO (e.g. DB Drops)
 │   └── context/                # High-signal architectural knowledge base
 │       ├── adr/                # Architectural Decision Records (ADRs)
 │       │   ├── 0001-use-postgresql.md
@@ -47,6 +54,10 @@ my-project/
 │   └── skills -> ../.agent/skills # Symlink to universal skills directory
 ├── .claude/                    # Claude Code integration
 │   └── settings.json           # Symlink or tool-specific settings
+├── .github/                    # CI/CD and Pipeline Integrations
+│   ├── copilot-instructions.md # GitHub Copilot global instructions
+│   └── workflows/
+│       └── ai-pr-reviewer.yml  # Auto-triggers code reviewer agent on PR creation
 └── docs/                       # Project documentation for human engineers
 ```
 
@@ -62,13 +73,19 @@ Top engineers don't put 5,000 lines of rules into one giant context file.
 - **Global Rules** (`.agent/rules/`): Loaded on every turn (~500–1000 tokens max).
 - **Skills** (`.agent/skills/`): Loaded **on-demand** only when the AI handles that specific domain (e.g., database migration or UI design).
 
-#### 3. Subagent Personas (`.agent/personas/`)
+#### 3. Enterprise Guardrails & MCP (`mcp/` & `boundaries/`)
+To deploy agents safely in enterprise environments, you define explicit boundaries (`SECRETS_DO_NOT_TOUCH.md`) and equip the agent with verifiable tools via the Model Context Protocol (MCP) rather than relying on the agent to guess DB schemas.
+
+#### 4. Subagent Personas (`.agent/personas/`)
 When running multi-agent workflows (e.g. in Antigravity or Claude Code), subagents can be initialized with explicit personas. For example:
 - Spawn a `security-auditor` subagent to audit code before merging.
 - Spawn a `db-specialist` subagent to review index performance.
 
-#### 4. ADRs (Architectural Decision Records)
-AI models frequently try to rewrite established patterns (e.g., replacing Redux with Zustand or changing your ORM). By storing ADRs in `.agent/context/adr/`, AI agents respect past technical decisions and understand **why** the codebase is built the way it is.
+#### 5. CI/CD Native & Agentic Tooling (`Makefile` & `.github/`)
+Agents run directly in pull requests using GitHub Actions, and interact locally with abstractions like `make ai-test` instead of executing complex multi-flag shell commands that are prone to hallucination.
+
+#### 6. ADRs (Architectural Decision Records)
+AI models frequently try to rewrite established patterns. By storing ADRs in `.agent/context/adr/`, AI agents respect past technical decisions and understand **why** the codebase is built the way it is.
 
 ---
 
@@ -76,13 +93,18 @@ AI models frequently try to rewrite established patterns (e.g., replacing Redux 
 
 ```bash
 # 1. Create directory structure
-mkdir -p .agent/{rules,skills,personas,workflows,context/adr}
+mkdir -p .agent/{rules,skills,personas,workflows,context/adr,mcp,boundaries} .github/workflows
 
 # 2. Create tool symlinks for cross-compatibility
 ln -s .agent/AGENTS.md AGENTS.md
 ln -s AGENTS.md CLAUDE.md
 mkdir -p .gemini && ln -s ../.agent/skills .gemini/skills
 mkdir -p .cursor && ln -s ../.agent/rules .cursor/rules
+
+# 3. Secure AI workspace
+echo ".agent/logs/" >> .gitignore
+echo ".agent/scratch/" >> .gitignore
+echo ".agent/memory/" >> .gitignore
 ```
 
-This layout gives you complete vendor neutrality, clean token management, and consistent multi-agent execution across any AI model or IDE.
+This layout gives you complete vendor neutrality, clean token management, high security, and consistent multi-agent execution across any AI model or IDE.
