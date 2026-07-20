@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(make ai-lint)",
+      "Bash(make ai-test)",
+      "Bash(make ai-format)",
+      "Bash(make ai-review)",
+      "Bash(make setup-ai)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(git push --force)",
+      "Bash(git push origin main)",
+      "Bash(dropdb)",
+      "Bash(prisma migrate reset)"
+    ]
+  },
+  "directives": {
+    "masterRuleFile": ".agent/AGENTS.md",
+    "language": "en-GB"
+  }
+}

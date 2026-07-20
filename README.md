@@ -108,8 +108,6 @@ Enterprise LLMs (Claude 3.5/3.7, Gemini 1.5/2.0 Pro/Flash, GPT-4o) charge per in
 my-project/
 ├── AGENTS.md                       # 🌟 Master Entrypoint: Core guidelines, directives & agent index
 ├── CLAUDE.md                       # Symlink → AGENTS.md (Claude Code CLI compatibility)
-├── CONTRIBUTING.md                 # Symlink → docs/CONTRIBUTING.md (Human contributor guide)
-├── ARCHITECTURE.md                 # Symlink → docs/ARCHITECTURE.md (Human architecture index)
 ├── Makefile                        # 🤖 Agentic Task Runner (setup-ai, clean-ai, ai-lint, ai-test)
 ├── .editorconfig                   # 📐 Universal formatting baseline (tabs, spaces, charsets)
 ├── .gitignore                       # 🛡️ Excludes agent workspace logs, scratch files & memory DBs
@@ -188,6 +186,8 @@ my-project/
 │   └── workflows/
 │       └── ai-pr-reviewer.yml      #   Automated GitHub Action PR code review workflow
 └── docs/                           # Human-facing project documentation
+    ├── ARCHITECTURE.md             # System architecture overview index
+    └── CONTRIBUTING.md             # Developer onboarding & workflow guide
 ```
 
 ---
